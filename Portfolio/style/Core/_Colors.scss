@@ -1,0 +1,54 @@
+// Primary colors
+$primary-dark: #0e0621; // Mörkaste lila, bakgrundsfärg
+$primary-medium: #1a0b38; // Mörkare lila, för element som kort
+$primary-light: #2d1259; // Ljusare lila, för hover-effekter
+
+// Accent colors
+$accent-glow: #9d4edd; // Ljuslila glöd-effekt
+$accent-highlight: #c77dff; // Ljusare lila för betoningar
+
+// Text colors
+$text-primary: #ffffff; // Vit text
+$text-secondary: #b8b8b8; // Ljusgrå text för mindre betonad information
+
+// Gradient colors för bakgrunden
+$gradient-top: #0e0621; // Mörkaste lila (topp)
+$gradient-bottom: #4e2591; // Ljusare lila (botten)
+
+// Skuggfärger
+$shadow-light: rgba(157, 78, 221, 0.3); // Ljus skugga för övre delen
+$shadow-dark: rgba(14, 6, 33, 0.3); // Mörk skugga för nedre delen
+
+// UI element colors
+$button-bg: #3c1b70;
+$button-hover: #4e2591;
+
+// Additional UI colors
+$card-bg: #1a0b38;
+$input-bg: #2d1259;
+$border-color: #4e2591;
+
+// Overlay colors
+$overlay-bg: rgba(14, 6, 33, 0.8); // Semi-transparent dark overlay
+
+// Icon colors
+$icon-primary: #9d4edd;
+$icon-secondary: #c77dff;
+
+// Link colors
+$link-color: #c77dff;
+$link-hover-color: #d8b4fe;
+
+// Status colors (if needed)
+$success-color: #4ade80;
+$warning-color: #fbbf24;
+$error-color: #f87171;
+
+// Utility function for creating color variations
+@function lighten-color($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+@function darken-color($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}

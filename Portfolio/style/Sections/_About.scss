@@ -1,0 +1,12 @@
+@import'../Core/_colors.scss';
+
+.about {
+    background-color: rgba($primary-dark, 0.8);
+
+    p {
+        max-width: 600px;
+        line-height: 1.6;
+        text-align: center;
+        color: $text-secondary;
+    }
+}
