@@ -1,0 +1,22 @@
+# Compiled CSS
+   *.css
+
+   # Source maps
+   *.css.map
+
+   # Node modules (om du använder npm)
+   node_modules/
+
+   # OS-genererade filer
+   .DS_Store
+   Thumbs.db
+
+   # VS Code-specifika filer
+   .vscode/
+
+   # Temporära filer
+   *.tmp
+   *.temp
+
+   # Loggfiler
+   *.log

@@ -1,23 +1,2 @@
 @import '../Core/_colors.scss';
 
-.experience {
-    background-color: rgba($primary-medium, 0.8);
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-
-        li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-
-            &::before {
-                content: '•';
-                color: $accent-glow;
-                font-size: 1.5em;
-                margin-right: 10px;
-            }
-        }
-    }
-}

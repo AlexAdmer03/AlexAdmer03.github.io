@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const adaptiveElements = document.querySelectorAll('.adaptive-element');
+    const navbar = document.querySelector('.navbar');
 
-    function updateShadows() {
+    function updateElements() {
         const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
 
+        // Update adaptive elements
         adaptiveElements.forEach(element => {
             const rect = element.getBoundingClientRect();
             const elementScrollPercentage = (rect.top + rect.height / 2) / window.innerHeight;
@@ -14,21 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             element.style.boxShadow = `${topShadow}, ${bottomShadow}`;
         });
+
+        // Update navbar
+        navbar.style.backgroundColor = window.scrollY > 50 ? 'rgba(14, 6, 33, 1)' : 'rgba(14, 6, 33, 0.95)';
     }
 
-    window.addEventListener('scroll', updateShadows);
-    window.addEventListener('resize', updateShadows);
-    updateShadows();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    var navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(14, 6, 33, 1)'; // Solid color
-        } else {
-            navbar.style.backgroundColor = 'rgba(14, 6, 33, 0.95)'; // Semi-transparent
-        }
-    });
+    window.addEventListener('scroll', updateElements);
+    window.addEventListener('resize', updateElements);
+    updateElements();
 });

@@ -1,8 +1,9 @@
 //CORE
-@import 'Core/_Colors.scss';
+@import 'Core/Colors';
 @import 'Core/Utils';
 
 //SECTIONS
-@import 'Sections/_Layout.scss';
-@import 'Sections/_About.scss';
-@import 'Sections/_Experience.scss';
+@import 'Sections/Layout';
+@import 'Sections/About';
+@import 'Sections/Experience';
+@import 'Sections/Hero';

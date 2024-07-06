@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AlexAdmér_Portfolio</title>
+    <title>Alex Admér - Portfolio</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body id="top">
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark">
             <div class="container-fluid">
-                <a href="#top" class="button navbar-brand" data-text="AlexAdmér">
-                    <span class="actual-text">&nbsp;Alex Admér&nbsp;</span>
-                    <span aria-hidden="true" class="hover-text">&nbsp;Alex Admér&nbsp;</span>
+                <a href="#top" class="home-button" data-text="Alex Admér">
+                    <span class="home-button__text">&nbsp;AlexAdmér&nbsp;</span>
+                    <span aria-hidden="true" class="home-button__hover-text">&nbsp;AlexAdmér&nbsp;</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +24,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#top">Home</a>
+                            <a class="nav-link" href="#hero">Hem</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
+                            <a class="nav-link" href="#about">Om mig</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#experience">Experience</a>
+                            <a class="nav-link" href="#projects">Projekt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="#experience">Erfarenhet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">Utbildning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Kontakt</a>
                         </li>
                     </ul>
                 </div>
@@ -40,41 +47,131 @@
         </nav>
     </header>
 
-    <div class="content">
-        <main role="main" class="pb-3">
-            <div class="content-wrapper">
-                <section id="about" class="section about adaptive-element">
-                    <h2>Om mig</h2>
-                    <p>Din presentation här...</p>
-                </section>
-                <section id="experience" class="section experience adaptive-element">
-                    <h2>Mina kunskaper</h2>
-                    <ul>
-                        <li>Färdighet 1</li>
-                        <li>Färdighet 2</li>
-                        <li>Färdighet 3</li>
-                    </ul>
-                </section>
-                <!-- You can add more sections here as needed -->
+    <main role="main" class="content">
+        <div class="content-wrapper">
+           
+           <!-- Hero Section -->
+           <section id="hero" class="hero">
+            <div class="hero-content">
+              <h1>Jag är Alex Admér</h1>
+              <p class="tagline">FullStack .NET Utvecklare<br>&amp; UI/UX Designer</p>
+              <div class="cta-buttons">
+                <a href="#projects" class="cta-button">Se mina Projekt</a>
+                <a href="#contact" class="cta-button outline">Kontakta mig</a>
+              </div>
             </div>
-        </main>
-    </div>
+            <div class="card">
+              <div class="content">
+                <div class="image-container">
+                  <img src="/img/img_1312.jpg" alt="Alex Admér" class="profile-image">
+                </div>
+              </div>
+            </div>
+          </section>
+
+            <section id="about" class="section about adaptive-element">
+                <h2>Om mig</h2>
+                <div class="about-content">
+                    <p>Kort beskrivning om dig, din bakgrund och passion för webbutveckling. Här kan du berätta om dina mål, värderingar och vad som driver dig inom ditt yrke.</p>
+                    <h3>Mina färdigheter</h3>
+                    <ul class="skills-list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Git</li>
+                        <!-- Lägg till fler färdigheter här -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects" class="section projects adaptive-element">
+                <h2>Mina projekt</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <img src="path/to/project-image.jpg" alt="Projektnamn">
+                        <h3>Projektnamn</h3>
+                        <p>Kort beskrivning av projektet.</p>
+                        <a href="#" class="project-link">Se projekt</a>
+                    </article>
+                    <!-- Upprepa project-card för fler projekt -->
+                </div>
+            </section>
+
+            <section id="experience" class="section experience adaptive-element">
+                <h2>Erfarenhet</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Frontend Utvecklare</h3>
+                        <p class="company">TechCorp AB</p>
+                        <p class="date">Januari 2022 - Nuvarande</p>
+                        <ul class="responsibilities">
+                            <li>Utvecklar responsiva webbapplikationer med React och TypeScript</li>
+                            <li>Samarbetar med UX-designers för att implementera användarvänliga gränssnitt</li>
+                            <li>Optimerar webbplatsers prestanda och tillgänglighet</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Junior Webbutvecklare</h3>
+                        <p class="company">WebSolutions Inc.</p>
+                        <p class="date">Juni 2020 - December 2021</p>
+                        <ul class="responsibilities">
+                            <li>Arbetade med HTML, CSS och JavaScript för att skapa statiska webbsidor</li>
+                            <li>Assisterade i underhåll och uppdatering av existerande webbplatser</li>
+                            <li>Lärde mig grunderna i versionshantering med Git</li>
+                        </ul>
+                    </div>
+                    <!-- Upprepa timeline-item för fler erfarenheter -->
+                </div>
+            </section>
+
+            <section id="education" class="section education adaptive-element">
+                <h2>Utbildning</h2>
+                <ul class="education-list">
+                    <li>
+                        <h3>Examen i Webbutveckling</h3>
+                        <p class="institution">Universitetsnamn</p>
+                        <p class="date">2018 - 2022</p>
+                    </li>
+                    <!-- Upprepa li för fler utbildningar -->
+                </ul>
+            </section>
+
+            <section id="contact" class="section contact adaptive-element">
+                <h2>Kontakta mig</h2>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Ditt namn" required>
+                    <input type="email" name="email" placeholder="Din e-post" required>
+                    <textarea name="message" placeholder="Ditt meddelande" required></textarea>
+                    <button type="submit">Skicka</button>
+                </form>
+                <div class="social-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <!-- Lägg till fler sociala medier här -->
+                </div>
+            </section>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                &copy; <script>document.write(new Date().getFullYear())</script> - AlexAdmér_Portfolio
+                &copy; <script>document.write(new Date().getFullYear())</script> - Alex Admér Portfolio
             </div>
             <ul class="footer-links">
-                <li><a href="#top">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#hero">Hem</a></li>
+                <li><a href="#about">Om mig</a></li>
+                <li><a href="#projects">Projekt</a></li>
+                <li><a href="#experience">Erfarenhet</a></li>
+                <li><a href="#education">Utbildning</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
             <div class="footer-social">
-                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
