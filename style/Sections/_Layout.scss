@@ -7,11 +7,13 @@ html, body {
 }
 
 body {
+    
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, $gradient-top, $gradient-bottom);
     color: $text-primary;
     font-family: 'Arial', sans-serif;
+    
 }
 
 .content {
@@ -30,8 +32,29 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 4rem 2rem;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, $gradient-top, $gradient-bottom);
+        z-index: -1;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
     h2 {
         margin-bottom: 1.5rem;
@@ -40,6 +63,130 @@ body {
 
         @media (max-width: 768px) {
             font-size: 2rem;
+        }
+    }
+}
+
+// Hero styles
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(135deg, $gradient-top, $gradient-bottom);
+    min-height: 100vh;
+    color: $text-primary;
+    gap: 10rem;
+
+    .hero-content {
+        max-width: 600px;
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: $text-primary;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: $accent-highlight;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+
+            .cta-button {
+                padding: 1rem 2rem;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+
+                &:first-child {
+                    background-color: $button-bg;
+                    color: $text-primary;
+
+                    &:hover {
+                        background-color: $button-hover;
+                    }
+                }
+
+                &.outline {
+                    border: 2px solid $text-primary;
+                    color: $text-primary;
+
+                    &:hover {
+                        background-color: $text-primary;
+                        color: $primary-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    .card {
+        width: 400px;
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        background-color: $primary-dark;
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent 0deg,
+                transparent 30deg,
+                $accent-glow 60deg,
+                $accent-highlight 90deg,
+                transparent 120deg,
+                transparent 180deg,
+                transparent 210deg,
+                $accent-glow 240deg,
+                $accent-highlight 270deg,
+                transparent 300deg,
+                transparent 360deg
+            );
+            animation: rotate 8s linear infinite;
+        }
+
+        &::after {
+            filter: blur(20px);
+        }
+
+        .image-container {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
     }
 }
@@ -57,7 +204,6 @@ nav.navbar {
     border-bottom: 1px solid $accent-glow;
     transition: all 0.3s ease;
     
-    //Home button
     .home-button {
         --border-right: 5px;
         --text-stroke-color: rgba(201, 187, 187, 0.6);
@@ -102,12 +248,7 @@ nav.navbar {
             filter: drop-shadow(0 0 23px var(--animation-color))
           }
         }
-        
-        @media (max-width: 768px) {
-          --fs-size: 1.5em;
-        }
     }
-    //----------------
 
     .navbar-nav {
         .nav-item {
@@ -143,22 +284,6 @@ nav.navbar {
 
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{encodecolor($accent-glow)}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    @media (max-width: 767px) {
-        padding: 0.5rem 1rem;
-
-        .navbar-collapse {
-            background-color: rgba($primary-dark, 0.95);
-            padding: 1rem;
-            border-radius: 0 0 10px 10px;
-        }
-
-        .navbar-nav {
-            .nav-item {
-                margin: 0.5rem 0;
-            }
-        }
     }
 }
 
@@ -230,8 +355,108 @@ nav.navbar {
             }
         }
     }
+}
 
-    @media (max-width: 768px) {
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Responsive styles
+
+@media (max-width: 1200px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 5rem 2rem 3rem;
+        gap: 3rem;
+
+        .hero-content {
+            max-width: 100%;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+            }
+        }
+
+        .cta-buttons {
+            justify-content: center;
+        }
+
+        .card {
+            width: 350px;
+            height: 450px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px;
+    }
+
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero {
+        padding: 4rem 1rem 2rem;
+
+        .hero-content {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.25rem;
+            }
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+
+            .cta-button {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+        }
+    }
+
+    nav.navbar {
+        padding: 0.5rem 1rem;
+
+        .navbar-collapse {
+            background-color: rgba($primary-dark, 0.95);
+            padding: 1rem;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .navbar-nav {
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+        }
+
+        .home-button {
+            --fs-size: 1.5em;
+        }
+    }
+
+    .footer {
         padding: 1.5rem 0;
 
         .footer-content {
@@ -263,17 +488,6 @@ nav.navbar {
     }
 }
 
-// Additional responsive adjustments
-@media (max-width: 768px) {
-    .section {
-        padding: 1.5rem;
-    }
-
-    .content-wrapper {
-        padding-top: 60px; // Adjust based on your navbar height
-    }
-}
-
 @media (max-width: 480px) {
     body {
         font-size: 14px;
@@ -281,6 +495,25 @@ nav.navbar {
 
     .section h2 {
         font-size: 1.75rem;
+    }
+
+    .hero {
+        padding: 3rem 1rem 2rem;
+
+        .hero-content {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+
+        .card {
+            width: 250px;
+            height: 350px;
+        }
     }
 
     .navbar .home-button {

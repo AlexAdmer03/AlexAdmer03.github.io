@@ -2,14 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 4rem; // Increased top padding to account for navbar
+  padding: 6rem 2rem 4rem;
   background: linear-gradient(135deg, $gradient-top, $gradient-bottom);
   min-height: 100vh;
   color: $text-primary;
-  gap: 10rem; // Increased gap between text and image
-
+  gap: 10rem;
+  
   .hero-content {
     max-width: 600px;
+    position: relative;
+    z-index: 2;
 
     h1 {
       font-size: 4rem;
@@ -63,7 +65,8 @@
     position: relative;
     overflow: hidden;
     border-radius: 15px;
-    background-color: $primary-dark; // Dark purple background for the border
+    background-color: $primary-dark;
+    z-index: 2;
 
     .content {
       width: 100%;
@@ -124,7 +127,7 @@
     flex-direction: column;
     text-align: center;
     padding: 5rem 2rem 3rem;
-    gap: 3rem; // Adjusted gap for mobile layout
+    gap: 3rem;
 
     .hero-content {
       max-width: 100%;

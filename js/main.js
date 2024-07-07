@@ -1,3 +1,5 @@
+
+// dynamisk navbar
 document.addEventListener('DOMContentLoaded', () => {
     const adaptiveElements = document.querySelectorAll('.adaptive-element');
     const navbar = document.querySelector('.navbar');
