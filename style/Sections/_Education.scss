@@ -1,8 +1,8 @@
 @import '../Core/_colors.scss';
 
-.experience {
+.education {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, $primary-dark, $primary-medium);
+  background: linear-gradient(135deg, $primary-medium, $primary-light);
   color: $text-primary;
 
   h2 {
@@ -24,54 +24,20 @@
     }
   }
 
-  .timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
+  .education-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    list-style-type: none;
+    padding: 0;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 100%;
-      background-color: $accent-glow;
-    }
-
-    .timeline-item {
-      position: relative;
-      width: 50%;
-      padding: 20px 40px;
-      background: rgba($primary-light, 0.1);
+    li {
+      background: rgba($primary-dark, 0.3);
       border-radius: 15px;
-      margin-bottom: 30px;
+      padding: 2rem;
+      width: calc(50% - 1rem);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:nth-child(odd) {
-        left: 0;
-        &::before {
-          right: -15px;
-        }
-      }
-
-      &:nth-child(even) {
-        left: 50%;
-        &::before {
-          left: -15px;
-        }
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 20px;
-        width: 30px;
-        height: 30px;
-        background-color: $accent-glow;
-        border-radius: 50%;
-      }
 
       &:hover {
         transform: translateY(-5px);
@@ -84,7 +50,7 @@
         margin-bottom: 10px;
       }
 
-      .company {
+      .institution {
         font-weight: bold;
         color: $text-secondary;
         margin-bottom: 5px;
@@ -96,7 +62,7 @@
         margin-bottom: 15px;
       }
 
-      .responsibilities {
+      .course-content {
         list-style-type: none;
         padding-left: 0;
 
@@ -104,9 +70,10 @@
           position: relative;
           padding-left: 20px;
           margin-bottom: 10px;
+          width: 100%;
 
           &::before {
-            content: '•';
+            content: '➤';
             position: absolute;
             left: 0;
             color: $accent-glow;
@@ -117,20 +84,30 @@
   }
 }
 
-@media (max-width: 768px) {
-  .experience {
-    .timeline {
-      &::before {
-        left: 30px;
-      }
-
-      .timeline-item {
+@media (max-width: 992px) {
+  .education {
+    .education-list {
+      li {
         width: 100%;
-        left: 0 !important;
-        padding: 15px 20px 15px 60px;
+      }
+    }
+  }
+}
 
-        &::before {
-          left: 15px !important;
+@media (max-width: 768px) {
+  .education {
+    padding: 3rem 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .education-list {
+      li {
+        padding: 1.5rem;
+
+        h3 {
+          font-size: 1.3rem;
         }
       }
     }
