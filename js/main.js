@@ -92,14 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectData = {
         1: {
             title: "Projekt 1",
-            images: ["/img/profile1.jpg", "/img/IMG_3130.jpg", "/api/placeholder/600/400"],
+            images: ["/img/profile1.jpg", "/img/IMG_3130.jpg"],
             description: "Detta är en detaljerad beskrivning av Projekt 1. Här kan du beskriva projektets syfte, utmaningar och resultat.",
             technologies: ["HTML", "CSS", "JavaScript"],
             link: "#"
         },
         2: {
             title: "Projekt 2",
-            images: ["/img/IMG_3130.jpg", "/img/profile1.jpg", "/api/placeholder/600/400"],
+            images: ["/img/IMG_3130.jpg", "/img/profile1.jpg"],
             description: "Här är en utförlig beskrivning av Projekt 2. Förklara vad som gör detta projekt unikt och intressant.",
             technologies: ["React", "Node.js", "MongoDB"],
             link: "#"
