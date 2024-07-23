@@ -2,7 +2,7 @@
 
 .projects {
     padding: 3rem 2rem 5rem;
-    background: linear-gradient(135deg, $primary-dark, $primary-medium);
+    background: linear-gradient(135deg, $primary-light, $primary-dark);
     color: $text-primary;
 
     h2 {
@@ -177,12 +177,49 @@
             }
         }
 
-        #dialogImage {
+        .dialog-image-carousel {
+            position: relative;
             width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
             margin-bottom: 20px;
+            overflow: hidden;
+
+            .dialog-image-container {
+                display: flex;
+                transition: transform 0.3s ease;
+            }
+
+            img {
+                width: 100%;
+                height: 450px;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            .dialog-image-prev,
+            .dialog-image-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba($primary-dark, 0.7);
+                color: $text-primary;
+                border: none;
+                font-size: 1.5rem;
+                padding: 0.5rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: rgba($primary-dark, 0.9);
+                }
+            }
+
+            .dialog-image-prev {
+                left: 10px;
+            }
+
+            .dialog-image-next {
+                right: 10px;
+            }
         }
 
         #dialogTitle {
@@ -226,6 +263,7 @@
         }
     }
 }
+
 
 @keyframes pulse {
     0% { transform: scale(1); }
@@ -280,8 +318,13 @@
         }
 
         .project-carousel {
+            .carousel-container {
+                margin: 0 -1rem;
+                padding: 0 1rem;
+            }
+
             .project-card {
-                flex: 0 0 250px;
+                flex: 0 0 280px;
                 margin-right: 20px;
 
                 img {
@@ -307,23 +350,32 @@
 
             .carousel-button {
                 font-size: 1.5rem;
-                padding: 0.75rem;
+                padding: 0.75rem 0.5rem;
+                background-color: rgba($primary-dark, 0.5);
 
-                &.prev { left: -30px; }
-                &.next { right: -30px; }
+                &.prev { left: 5px; }
+                &.next { right: 5px; }
             }
         }
     }
 
-    //DIALOG______________________________
+    //DIALOG
     .project-dialog {
         .dialog-content {
             width: 95%;
             margin: 2.5% auto;
             padding: 15px;
 
-            #dialogImage {
-                max-height: 200px;
+            .dialog-image-carousel {
+                img {
+                    height: 200px;
+                }
+
+                .dialog-image-prev,
+                .dialog-image-next {
+                    font-size: 1.2rem;
+                    padding: 0.4rem;
+                }
             }
 
             #dialogTitle {
@@ -342,42 +394,6 @@
             #dialogLink {
                 padding: 8px 16px;
                 font-size: 1rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 576px) {
-    .projects {
-        .project-carousel {
-            .project-card {
-                flex: 0 0 220px;
-                margin-right: 15px;
-
-                img {
-                    height: 180px;
-                }
-
-                h3 {
-                    font-size: 1.2rem;
-                }
-
-                p {
-                    font-size: 0.9rem;
-                }
-
-                .project-link {
-                    font-size: 0.9rem;
-                    padding: 0.5rem 1rem;
-                }
-            }
-
-            .carousel-button {
-                font-size: 1.2rem;
-                padding: 0.6rem;
-
-                &.prev { left: -25px; }
-                &.next { right: -25px; }
             }
         }
     }

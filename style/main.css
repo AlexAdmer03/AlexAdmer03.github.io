@@ -599,7 +599,7 @@ body {
 }
 .about {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #0e0621, #1a0b38);
+  background: linear-gradient(135deg, #1a0b38, #2d1259);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -779,7 +779,7 @@ body {
 }
 .projects {
   padding: 3rem 2rem 5rem;
-  background: linear-gradient(135deg, #0e0621, #1a0b38);
+  background: linear-gradient(135deg, #2d1259, #0e0621);
   color: #ffffff;
 }
 .projects h2 {
@@ -932,12 +932,44 @@ body {
 .project-dialog .dialog-content .close-button:hover {
   color: #9d4edd;
 }
-.project-dialog .dialog-content #dialogImage {
+.project-dialog .dialog-content .dialog-image-carousel {
+  position: relative;
   width: 100%;
-  max-height: 450px;
-  object-fit: cover;
-  border-radius: 10px;
   margin-bottom: 20px;
+  overflow: hidden;
+}
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-container {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+.project-dialog .dialog-content .dialog-image-carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-prev,
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(14, 6, 33, 0.7);
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-prev:hover,
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-next:hover {
+  background-color: rgba(14, 6, 33, 0.9);
+}
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-prev {
+  left: 10px;
+}
+.project-dialog .dialog-content .dialog-image-carousel .dialog-image-next {
+  right: 10px;
 }
 .project-dialog .dialog-content #dialogTitle {
   color: #c77dff;
@@ -1023,8 +1055,12 @@ body {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
+  .projects .project-carousel .carousel-container {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
   .projects .project-carousel .project-card {
-    flex: 0 0 250px;
+    flex: 0 0 280px;
     margin-right: 20px;
   }
   .projects .project-carousel .project-card img {
@@ -1045,21 +1081,27 @@ body {
   }
   .projects .project-carousel .carousel-button {
     font-size: 1.5rem;
-    padding: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    background-color: rgba(14, 6, 33, 0.5);
   }
   .projects .project-carousel .carousel-button.prev {
-    left: -30px;
+    left: 5px;
   }
   .projects .project-carousel .carousel-button.next {
-    right: -30px;
+    right: 5px;
   }
   .project-dialog .dialog-content {
     width: 95%;
     margin: 2.5% auto;
     padding: 15px;
   }
-  .project-dialog .dialog-content #dialogImage {
-    max-height: 200px;
+  .project-dialog .dialog-content .dialog-image-carousel img {
+    height: 200px;
+  }
+  .project-dialog .dialog-content .dialog-image-carousel .dialog-image-prev,
+  .project-dialog .dialog-content .dialog-image-carousel .dialog-image-next {
+    font-size: 1.2rem;
+    padding: 0.4rem;
   }
   .project-dialog .dialog-content #dialogTitle {
     font-size: 1.5rem;
@@ -1076,45 +1118,16 @@ body {
     font-size: 1rem;
   }
 }
-@media (max-width: 576px) {
-  .projects .project-carousel .project-card {
-    flex: 0 0 220px;
-    margin-right: 15px;
-  }
-  .projects .project-carousel .project-card img {
-    height: 180px;
-  }
-  .projects .project-carousel .project-card h3 {
-    font-size: 1.2rem;
-  }
-  .projects .project-carousel .project-card p {
-    font-size: 0.9rem;
-  }
-  .projects .project-carousel .project-card .project-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-  .projects .project-carousel .carousel-button {
-    font-size: 1.2rem;
-    padding: 0.6rem;
-  }
-  .projects .project-carousel .carousel-button.prev {
-    left: -25px;
-  }
-  .projects .project-carousel .carousel-button.next {
-    right: -25px;
-  }
-}
 .experience {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #0e0621, #1a0b38);
+  background: linear-gradient(135deg, #0e0621, #2d1259);
   color: #ffffff;
 }
 .experience h2 {
   text-align: center;
   font-size: 2.5rem;
   color: #c77dff;
-  margin-bottom: 3rem;
+  margin: 3rem;
   position: relative;
 }
 .experience h2::after {
@@ -1229,7 +1242,7 @@ body {
   text-align: center;
   font-size: 2.5rem;
   color: #c77dff;
-  margin-bottom: 3rem;
+  margin-bottom: 9rem;
   position: relative;
 }
 .education h2::after {
@@ -1253,7 +1266,7 @@ body {
 .education .education-list li {
   background: rgba(14, 6, 33, 0.3);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 2.5rem;
   width: calc(50% - 1rem);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1264,33 +1277,44 @@ body {
 .education .education-list li h3 {
   font-size: 1.5rem;
   color: #c77dff;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 .education .education-list li .institution {
   font-weight: bold;
   color: #b8b8b8;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 .education .education-list li .date {
   font-style: italic;
   color: #b8b8b8;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 .education .education-list li .course-content {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 1.5rem;
 }
 .education .education-list li .course-content li {
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   width: 100%;
+  background: none;
+  border-radius: 0;
 }
 .education .education-list li .course-content li::before {
   content: "➤";
   position: absolute;
   left: 0;
+  top: 0;
   color: #9d4edd;
+}
+.education .education-list li .course-content li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 @media (max-width: 992px) {
@@ -1306,10 +1330,13 @@ body {
     font-size: 2rem;
   }
   .education .education-list li {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   .education .education-list li h3 {
     font-size: 1.3rem;
+  }
+  .education .education-list li .course-content li {
+    padding-left: 20px;
   }
 }
 .contact {
@@ -1466,4 +1493,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=Main.css.map */

@@ -81,20 +81,25 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const projectCards = document.querySelectorAll('.project-card:not(.coming-soon)');
     const dialog = document.getElementById('projectDialog');
-    const closeButton = document.querySelector('.close-button');
+    const closeButton = dialog.querySelector('.close-button');
+    const imageContainer = dialog.querySelector('.dialog-image-container');
+    const prevButton = dialog.querySelector('.dialog-image-prev');
+    const nextButton = dialog.querySelector('.dialog-image-next');
+
+    let currentImageIndex = 0;
 
     // Projektdata (ersätt med din egen projektinformation)
     const projectData = {
         1: {
             title: "Projekt 1",
-            image: "/img/profile1.jpg",
+            images: ["/img/profile1.jpg", "/img/IMG_3130.jpg", "/api/placeholder/600/400"],
             description: "Detta är en detaljerad beskrivning av Projekt 1. Här kan du beskriva projektets syfte, utmaningar och resultat.",
             technologies: ["HTML", "CSS", "JavaScript"],
             link: "#"
         },
         2: {
             title: "Projekt 2",
-            image: "/img/IMG_3130.jpg",
+            images: ["/img/IMG_3130.jpg", "/img/profile1.jpg", "/api/placeholder/600/400"],
             description: "Här är en utförlig beskrivning av Projekt 2. Förklara vad som gör detta projekt unikt och intressant.",
             technologies: ["React", "Node.js", "MongoDB"],
             link: "#"
@@ -102,27 +107,49 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lägg till fler projekt här
     };
 
+    function updateDialogContent(project) {
+        document.getElementById('dialogTitle').textContent = project.title;
+        document.getElementById('dialogDescription').textContent = project.description;
+        
+        imageContainer.innerHTML = '';
+        project.images.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = project.title;
+            imageContainer.appendChild(img);
+        });
+        
+        const techContainer = document.getElementById('dialogTechnologies');
+        techContainer.innerHTML = '';
+        project.technologies.forEach(tech => {
+            const span = document.createElement('span');
+            span.textContent = tech;
+            techContainer.appendChild(span);
+        });
+
+        document.getElementById('dialogLink').href = project.link;
+        
+        currentImageIndex = 0;
+        updateImageCarousel();
+        updateCarouselButtons();
+    }
+
+    function updateImageCarousel() {
+        imageContainer.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+    }
+
+    function updateCarouselButtons() {
+        prevButton.style.display = currentImageIndex === 0 ? 'none' : 'block';
+        nextButton.style.display = currentImageIndex === imageContainer.children.length - 1 ? 'none' : 'block';
+    }
+
     projectCards.forEach(card => {
         const button = card.querySelector('.project-link');
         button.addEventListener('click', (event) => {
-            event.preventDefault(); // Förhindra standardbeteende för knappen
+            event.preventDefault();
             const projectId = card.getAttribute('data-project-id');
             const project = projectData[projectId];
-
-            document.getElementById('dialogTitle').textContent = project.title;
-            document.getElementById('dialogImage').src = project.image;
-            document.getElementById('dialogDescription').textContent = project.description;
-            
-            const techContainer = document.getElementById('dialogTechnologies');
-            techContainer.innerHTML = '';
-            project.technologies.forEach(tech => {
-                const span = document.createElement('span');
-                span.textContent = tech;
-                techContainer.appendChild(span);
-            });
-
-            document.getElementById('dialogLink').href = project.link;
-
+            updateDialogContent(project);
             dialog.style.display = 'block';
         });
     });
@@ -131,12 +158,76 @@ document.addEventListener('DOMContentLoaded', () => {
         dialog.style.display = 'none';
     });
 
+    prevButton.addEventListener('click', () => {
+        if (currentImageIndex > 0) {
+            currentImageIndex--;
+            updateImageCarousel();
+            updateCarouselButtons();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentImageIndex < imageContainer.children.length - 1) {
+            currentImageIndex++;
+            updateImageCarousel();
+            updateCarouselButtons();
+        }
+    });
+
     window.addEventListener('click', (event) => {
         if (event.target === dialog) {
             dialog.style.display = 'none';
         }
     });
 
-    // Debugging: Logga när skriptet har körts
     console.log('Project carousel script has loaded and executed.');
+});
+
+//PROJECT SECTION PHONE SCROLL
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-container');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('touchend', () => {
+        isDown = false;
+    });
+
+    carousel.addEventListener('touchmove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll-hastighet
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Funktion för att kontrollera om enheten är mobil
+    function isMobile() {
+        return window.innerWidth <= 768; // Justera detta värde efter behov
+    }
+
+    // Funktion för att uppdatera karusellens beteende baserat på skärmstorlek
+    function updateCarouselBehavior() {
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselButtons = document.querySelectorAll('.carousel-button');
+        
+        if (isMobile()) {
+            carouselTrack.style.transform = 'none';
+            carouselButtons.forEach(button => button.style.display = 'none');
+        } else {
+            carouselTrack.style.transform = '';
+            carouselButtons.forEach(button => button.style.display = '');
+        }
+    }
+
+    // Kör funktionen vid sidladdning och vid ändring av fönsterstorlek
+    updateCarouselBehavior();
+    window.addEventListener('resize', updateCarouselBehavior);
 });
