@@ -819,6 +819,9 @@ body {
   overflow: hidden;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .projects .project-carousel .project-card:hover {
   transform: translateY(-10px);
@@ -837,10 +840,11 @@ body {
 .projects .project-carousel .project-card p {
   padding: 0 1.5rem 1.5rem;
   font-size: 1.1rem;
+  flex-grow: 1;
 }
 .projects .project-carousel .project-card .project-link {
   display: inline-block;
-  margin: 0 1.5rem 1.5rem;
+  margin: 1.5rem;
   padding: 0.75rem 1.5rem;
   background-color: #9d4edd;
   color: #ffffff;
@@ -848,6 +852,7 @@ body {
   border-radius: 5px;
   font-size: 1.1rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  align-self: flex-start;
 }
 .projects .project-carousel .project-card .project-link:hover {
   background-color: #c77dff;
@@ -913,8 +918,7 @@ body {
   padding: 20px;
   border: 1px solid #9d4edd;
   width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
+  max-width: 700px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   overflow-y: auto;
@@ -944,7 +948,7 @@ body {
 }
 .project-dialog .dialog-content .dialog-image-carousel img {
   width: 100%;
-  height: 450px;
+  height: 420px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -1493,4 +1497,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=Main.css.map */
+/*# sourceMappingURL=main.css.map */

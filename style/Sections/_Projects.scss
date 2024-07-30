@@ -46,6 +46,9 @@
             overflow: hidden;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             &:hover {
                 transform: translateY(-10px);
@@ -67,11 +70,12 @@
             p {
                 padding: 0 1.5rem 1.5rem;
                 font-size: 1.1rem;
+                flex-grow: 1;
             }
 
             .project-link {
                 display: inline-block;
-                margin: 0 1.5rem 1.5rem;
+                margin: 1.5rem;
                 padding: 0.75rem 1.5rem;
                 background-color: $accent-glow;
                 color: $text-primary;
@@ -79,6 +83,7 @@
                 border-radius: 5px;
                 font-size: 1.1rem;
                 transition: background-color 0.3s ease, transform 0.3s ease;
+                align-self: flex-start;
 
                 &:hover {
                     background-color: $accent-highlight;
@@ -156,8 +161,7 @@
         padding: 20px;
         border: 1px solid $accent-glow;
         width: 90%;
-        max-width: 800px;
-        max-height: 90vh;
+        max-width: 700px;
         border-radius: 15px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         overflow-y: auto;
@@ -190,7 +194,7 @@
 
             img {
                 width: 100%;
-                height: 450px;
+                height: 420px;
                 object-fit: cover;
                 flex-shrink: 0;
             }

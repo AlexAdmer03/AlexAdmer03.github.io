@@ -91,18 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Projektdata (ersätt med din egen projektinformation)
     const projectData = {
         1: {
-            title: "Projekt 1",
-            images: ["/img/profile1.jpg", "/img/IMG_3130.jpg"],
-            description: "Detta är en detaljerad beskrivning av Projekt 1. Här kan du beskriva projektets syfte, utmaningar och resultat.",
-            technologies: ["HTML", "CSS", "JavaScript"],
-            link: "#"
+            title: "Stiftelseansokan 2.0",
+            images: ["/img/1 (6).png", "/img/1 (7).png", "/img/1 (8).png", "/img/1 (1).png", "/img/1 (3).png" ,"/img/1 (5).png", "/img/1 (4).png"],
+            description: "Stiftelseansökan.se är en ombyggd webbportal för hantering av stiftelser och stipendieansökningar. Projektet moderniserade plattformen genom migrering till Azure och implementering av en ny responsiv design. En central del var utvecklingen av en robust SQL-databas med database first-approach, vilket säkerställde en stabil grund för datahantering. Användningen av Entity Framework effektiviserade dataåtkomsten och ökade säkerheten. Det nya administrativa gränssnittet, byggt på MVC-arkitektur, möjliggör smidig CRUD-funktionalitet direkt mot databasen. Detta resulterade i en mer effektiv, säker och användarvänlig plattform för hantering av stiftelseinformation och ansökningsprocesser.",
+            technologies: ["MVC", "SCSS", "JavaScript", "SQL-Databases", "Azure AD"],
+            link: "https://stiftelseansokan20.se/"
         },
         2: {
-            title: "Projekt 2",
-            images: ["/img/IMG_3130.jpg", "/img/profile1.jpg"],
-            description: "Här är en utförlig beskrivning av Projekt 2. Förklara vad som gör detta projekt unikt och intressant.",
-            technologies: ["React", "Node.js", "MongoDB"],
-            link: "#"
+            title: "FIXXO",
+            images: ["/img/2 (1).png", "/img/2 (2).png", "/img/2 (3).png", "/img/2 (4).png", "/img/2 (5).png"],
+            description: "Fixxo är en modern e-handelsplattform för kläder och accessoarer. Projektet omfattar utvecklingen av en responsiv hemsida och en kontaktsida, med fokus på en ren design och användarvänlighet. Sidan använder flexbox och CSS-grid för layouten, och inkluderar funktioner som produktgalleri, kampanjerbjudanden och ett interaktivt kontaktformulär. Tekniskt sett integrerar projektet API:er för produktdata och formulärhantering, samt använder SCSS för effektiv stilning och JavaScript för dynamisk funktionalitet. Målet är att skapa en attraktiv och funktionell e-handelsupplevelse som lockar kunder med sitt moderna gränssnitt och smidiga köpprocess.",
+            technologies: ["HTML", "SCSS", "JavaScript"],
+            link: "https://github.com/AlexAdmer03/FIXXO-Assignment"
+        },
+        3: {
+            title: "IOT-Unit control panel",
+            images: ["/img/3 (1).png", "/img/3 (2).png", "/img/3 (3).png"],
+            description: "SmartIotUnit är en smart hem-applikation som integrerar IoT-enheter med molntjänster. Appen erbjuder en användarvänlig gränssnitt för att styra smarta enheter som Dyson-fläktar, visar väderinformation och aktuell tid. Den använder Azure IoT Hub för enhetshantering och kommunikation. Utvecklad i Visual Studio med fokus på multiplattformsstöd, kombinerar projektet modern UI-design med kraftfull bakomliggande funktionalitet för att ge användare en smidig upplevelse av sitt smarta hem.",
+            technologies: ["C#", "WPF", "Azure IoT Hub", ".NET"],
+            link: "https://github.com/AlexAdmer03/SmartIotUnit"
+        },
+        4: {
+            title: "Bilsimulator",
+            images: ["/img/4 (1).png", "/img/4 (2).png", "/img/4 (4).png"],
+            description: "Bilsimulator är en C#-konsolapplikation som demonstrerar omfattande mjukvarutestning. Projektet använder en enkel bilkörningssimulering för att visa hur olika teststrategier kan tillämpas. Med fokus på enhetstestning, kodkvalitet och utvecklingsprinciper illustrerar projektet bästa praxis inom testdriven utveckling och fungerar som ett läromedel för utvecklare.",
+            technologies: ["C#", "MSTest"],
+            link: "https://github.com/AlexAdmer03/DrivingSimulator"
         }
         // Lägg till fler projekt här
     };
