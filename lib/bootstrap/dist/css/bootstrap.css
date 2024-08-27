@@ -4013,6 +4013,7 @@ textarea.form-control-lg {
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
+  
   align-items: center;
 }
 
@@ -4047,6 +4048,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+  color:aliceblue;
 }
 
 .navbar-nav-scroll {

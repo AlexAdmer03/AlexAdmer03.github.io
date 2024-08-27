@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateElements();
 });
 
-
 //Skills boxes phone
 document.addEventListener('DOMContentLoaded', function() {
     const skills = document.querySelectorAll('.skill');
@@ -97,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             technologies: ["MVC", "SCSS", "JavaScript", "SQL-Databases", "Azure AD"],
             link: "https://stiftelseansokan20.se/"
         },
+        
         2: {
             title: "FIXXO",
             images: ["/img/2 (1).png", "/img/2 (2).png", "/img/2 (3).png", "/img/2 (4).png", "/img/2 (5).png"],
@@ -117,6 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
             description: "Bilsimulator är en C#-konsolapplikation som demonstrerar omfattande mjukvarutestning. Projektet använder en enkel bilkörningssimulering för att visa hur olika teststrategier kan tillämpas. Med fokus på enhetstestning, kodkvalitet och utvecklingsprinciper illustrerar projektet bästa praxis inom testdriven utveckling och fungerar som ett läromedel för utvecklare.",
             technologies: ["C#", "MSTest"],
             link: "https://github.com/AlexAdmer03/DrivingSimulator"
+        },
+        5: {
+            title: "AlexAdmér Portfolio",
+            images: ["/img/5 (1).png", "/img/5 (2).png", "/img/5 (3).png", "/img/5 (4).png", "/img/5 (5).png", "/img/5 (6).png"],
+            description: "Detta är min personliga portfolio där jag har använt mig av Visual Studio Code som utvecklingsmiljö för att skapa sidan med HTML, SCSS och JavaScript. Projektet är publicerat via GitHub Pages för att enkelt kunna visas och delas online.",
+            technologies: ["HTML", "SCSS", "JavaScript"],
+            link: "https://github.com/AlexAdmer03/AlexAdmer03.github.io"
         }
         // Lägg till fler projekt här
     };
