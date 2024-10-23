@@ -1,0 +1,39 @@
+$color-space-purple: #6e44ff;
+$color-void-black: #0b002a;
+$color-nebula-pink: #ff007f;
+$color-cosmic-blue: #2411ff;
+$color-deep-space-blue: #1c0e4f;
+$color-aurora-violet: #9f73ff;
+$color-galactic-indigo: #52057b;
+$color-stellar-pink: #ff33cc;
+$color-star-white: #f5f5f5;
+$color-dark-void: #1a0033;
+$color-asteroid-grey: #2e2b3f;
+$color-midnight-horizon: #151233;
+$color-supernova-yellow: #ffd700;
+$color-quasar-cyan: #00ffff;
+$color-deep-violet: #4b0082;
+
+// Light shadow colors
+$shadow-light-purple: rgba(110, 68, 255, 0.3);
+$shadow-light-pink: rgba(255, 0, 127, 0.3);
+$shadow-light-blue: rgba(36, 17, 255, 0.3);
+$shadow-light-cyan: rgba(0, 255, 255, 0.3);
+$shadow-light-yellow: rgba(255, 215, 0, 0.3);
+
+// Gradients for galactic vibe
+$gradient-nebula: linear-gradient(135deg, $color-void-black, $color-nebula-pink, $color-cosmic-blue);
+$gradient-aurora: linear-gradient(180deg, $color-aurora-violet, $color-galactic-indigo);
+$gradient-cosmic-rift: linear-gradient(90deg, $color-deep-space-blue, $color-supernova-yellow, $color-quasar-cyan);
+
+// Common uses
+$background-main: $color-void-black;
+$text-color-primary: $color-star-white;
+$text-color-secondary: $color-aurora-violet;
+$accent-color: $color-nebula-pink;
+$button-bg: $color-cosmic-blue;
+$button-hover-bg: $color-stellar-pink;
+$border-color: $color-asteroid-grey;
+
+// Particle colors
+$particle-colors: ($color-space-purple, $color-nebula-pink, $color-cosmic-blue, $color-aurora-violet, $color-stellar-pink, $color-supernova-yellow, $color-quasar-cyan, $shadow-light-yellow);
