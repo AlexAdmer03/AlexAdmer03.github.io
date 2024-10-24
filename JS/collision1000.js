@@ -1,4 +1,4 @@
-import init, * as wasm from './pkg/collision_simulation.js';
+import init, * as wasm from '../proj/collision-simulation/pkg/collision_simulation.js';
 
 
 let wasmModule;
