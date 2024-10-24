@@ -176,7 +176,7 @@
 }
 .algovis-controls {
   display: flex;
-  gap: 2rem;
+  gap: 2.1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
