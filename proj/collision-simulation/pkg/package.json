@@ -1,0 +1,15 @@
+{
+  "name": "collision-simulation",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "collision_simulation_bg.wasm",
+    "collision_simulation.js",
+    "collision_simulation.d.ts"
+  ],
+  "main": "collision_simulation.js",
+  "types": "collision_simulation.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
