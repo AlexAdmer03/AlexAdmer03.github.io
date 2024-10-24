@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithm Visualizer</title>
+    <link
+      rel="stylesheet"
+      href="../../lib/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../../style/main.css" />
+    <link rel="icon" href="data:," />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="algovis-wrapper">
+      <div class="algovis-container">
+        <h1 class="algovis-title">Sorting Algorithm Visualizer</h1>
+        <div class="algovis-controls">
+          <button class="algovis-button" id="newArray">
+            Generate New Array
+          </button>
+          <div class="algovis-slider-container">
+            <label for="arraySize">Array Size:</label>
+            <input
+              type="range"
+              class="algovis-slider-input"
+              id="arraySize"
+              min="5"
+              max="50"
+              value="25"
+            />
+            <span id="arraySizeValue">25</span>
+          </div>
+          <div class="algovis-slider-container">
+            <label for="speed">Speed:</label>
+            <input
+              type="range"
+              class="algovis-slider-input"
+              id="speed"
+              min="1"
+              max="100"
+              value="50"
+            />
+            <span id="speedValue">50</span>
+          </div>
+
+          <div class="algovis-checkbox-container">
+            <input type="checkbox" id="showNumbers" checked />
+            <label for="showNumbers">Show Numbers</label>
+          </div>
+
+          <button class="algovis-button" id="bubbleSort">Bubble Sort</button>
+          <button class="algovis-button" id="quickSort">Quick Sort</button>
+          <button class="algovis-button" id="mergeSort">Merge Sort</button>
+        </div>
+        <div class="algovis-visualizer" id="arrayContainer"></div>
+        <div class="algovis-stats">
+          <div class="algovis-stats-item">
+            <span class="algovis-stats-value" id="comparison">0</span>
+            <span>Comparison</span>
+          </div>
+          <div class="algovis-stats-item">
+            <span class="algovis-stats-value" id="swaps">0</span>
+            <span>Swaps</span>
+          </div>
+          <div class="algovis-stats-item">
+            <span class="algovis-stats-value" id="time">0.0s</span>
+            <span>Time</span>
+          </div>
+        </div>
+
+        <div class="algovis-info">
+          <h2 class="algovis-info-title">Understanding Sorting Algorithms</h2>
+
+          <div class="algovis-info-section">
+            <h3>Key Concepts Explained</h3>
+            <div class="algovis-info-card">
+              <h4>Time Complexity</h4>
+              <p>
+                Measures how the algorithm's running time increases with input
+                size:
+              </p>
+              <ul>
+                <li>
+                  O(n²): If you double the array size, time increases by 4x
+                </li>
+                <li>
+                  O(n log n): Much more efficient - doubling array size less
+                  than doubles the time
+                </li>
+              </ul>
+            </div>
+
+            <div class="algovis-info-card">
+              <h4>Space Complexity</h4>
+              <p>Measures how much extra memory the algorithm needs:</p>
+              <ul>
+                <li>
+                  O(1): Uses the same amount of extra memory regardless of array
+                  size
+                </li>
+                <li>O(n): Needs extra memory proportional to array size</li>
+                <li>O(log n): Needs extra memory, but less than O(n)</li>
+              </ul>
+            </div>
+
+            <div class="algovis-info-card">
+              <h4>Stability</h4>
+              <p>
+                A sorting algorithm is "stable" if it maintains the relative
+                order of equal elements.
+              </p>
+              <p>
+                Example with numbers [5, 3, 5, 1] where first 5 is marked as 5a:
+              </p>
+              <ul>
+                <li>Before: [5a, 3, 5b, 1]</li>
+                <li>
+                  Stable sort: [1, 3, 5a, 5b] - Original order of 5s maintained
+                </li>
+                <li>Unstable sort: Might become [1, 3, 5b, 5a]</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="algovis-info-section">
+            <h3>Sorting Algorithms Compared</h3>
+
+            <div class="algovis-info-card">
+              <h4>Bubble Sort</h4>
+              <p>
+                Like bubbles rising to the surface, larger elements "bubble up"
+                to their correct positions.
+              </p>
+              <ul>
+                <li>Time Complexity: O(n²) - Slow for large arrays</li>
+                <li>Space Complexity: O(1) - Very memory efficient</li>
+                <li>Best for: Small arrays (< 50 elements)</li>
+                <li>Stable: Yes - Maintains order of equal elements</li>
+                <li>
+                  Process: Repeatedly compares adjacent elements and swaps them
+                  if needed
+                </li>
+              </ul>
+            </div>
+
+            <div class="algovis-info-card">
+              <h4>Quick Sort</h4>
+              <p>
+                Divides and conquers by using a 'pivot' to partition the array
+                into smaller parts.
+              </p>
+              <ul>
+                <li>
+                  Time Complexity: O(n log n) - Efficient for large arrays
+                </li>
+                <li>
+                  Space Complexity: O(log n) - Moderately memory efficient
+                </li>
+                <li>Best for: Large arrays and general-purpose sorting</li>
+                <li>Stable: No - May change order of equal elements</li>
+                <li>
+                  Process: Picks a pivot, moves smaller elements left and larger
+                  right, then sorts the parts
+                </li>
+              </ul>
+            </div>
+
+            <div class="algovis-info-card">
+              <h4>Merge Sort</h4>
+              <p>
+                Splits array in half, sorts each half, then merges them back
+                together.
+              </p>
+              <ul>
+                <li>
+                  Time Complexity: O(n log n) - Efficient for large arrays
+                </li>
+                <li>Space Complexity: O(n) - Needs extra memory</li>
+                <li>Best for: Large arrays and when stability is important</li>
+                <li>Stable: Yes - Maintains order of equal elements</li>
+                <li>
+                  Process: Divides array until single elements, then merges them
+                  in sorted order
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="algovis-info-section">
+            <h3>Real-World Usage</h3>
+            <div class="algovis-info-card">
+              <p>Different algorithms are used in different scenarios:</p>
+              <ul>
+                <li>
+                  <strong>Bubble Sort:</strong> Educational purposes and tiny
+                  datasets
+                </li>
+                <li>
+                  <strong>Quick Sort:</strong> Default sort in many programming
+                  languages
+                </li>
+                <li>
+                  <strong>Merge Sort:</strong> Databases and when data stability
+                  is crucial
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../JS/algovis.js"></script>
+    <script src="../..//lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

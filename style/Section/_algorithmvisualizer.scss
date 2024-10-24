@@ -1,0 +1,227 @@
+@import "../Core/Colors";
+
+.algovis {
+  &-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    background-color: $algovis-bg;
+    color: $algovis-text;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  &-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &-controls {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  &-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: $algovis-primary;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  &-visualizer {
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    gap: 2px;
+    background-color: lighten($algovis-bg, 2%);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &-bar {
+    &-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    &-element {
+      width: 100%;
+      background-color: $algovis-primary;
+      transition: height 0.1s ease, background-color 0.2s ease;
+
+      &.comparing {
+        background-color: $algovis-compare;
+      }
+
+      &.swapping {
+        background-color: $algovis-swap;
+      }
+
+      &.sorted {
+        background-color: $algovis-success;
+      }
+    }
+
+    &-value {
+      position: absolute;
+      top: -25px;
+      font-size: 12px;
+      transition: all 0.1s ease;
+      color: darken($algovis-text, 10%);
+      font-weight: 500;
+    }
+  }
+
+  &-stats {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: lighten($algovis-bg, 2%);
+      border-radius: 0.375rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    &-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $algovis-primary;
+    }
+  }
+
+  &-slider {
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: lighten($algovis-bg, 2%);
+      border-radius: 0.375rem;
+    }
+
+    &-input {
+      width: 200px;
+      cursor: pointer;
+
+      &::-webkit-slider-thumb {
+        background: $algovis-primary;
+      }
+
+      &::-moz-range-thumb {
+        background: $algovis-primary;
+      }
+    }
+  }
+
+  &-checkbox {
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background-color: lighten($algovis-bg, 2%);
+      border-radius: 0.375rem;
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+
+      label {
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+  &-info {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: lighten($algovis-bg, 2%);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    &-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $algovis-primary;
+      font-size: 1.8rem;
+    }
+
+    &-section {
+      margin-bottom: 2.5rem;
+
+      h3 {
+        color: $algovis-secondary;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba($algovis-primary, 0.1);
+      }
+    }
+
+    &-card {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+
+      h4 {
+        color: $algovis-primary;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        color: $algovis-text;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 1.2rem;
+
+        li {
+          margin-bottom: 0.5rem;
+          position: relative;
+          line-height: 1.5;
+
+          &::before {
+            content: "•";
+            color: $algovis-primary;
+            position: absolute;
+            left: -1.2rem;
+          }
+
+          strong {
+            color: $algovis-secondary;
+          }
+        }
+      }
+    }
+  }
+}

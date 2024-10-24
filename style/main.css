@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -178,6 +179,190 @@
   .header-content .header-logo {
     width: 200px;
   }
+}
+.algovis-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  min-height: 100vh;
+  padding: 2rem;
+}
+.algovis-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.algovis-controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.algovis-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.algovis-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.algovis-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.algovis-visualizer {
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  gap: 2px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.algovis-bar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.algovis-bar-element {
+  width: 100%;
+  background-color: #2563eb;
+  transition: height 0.1s ease, background-color 0.2s ease;
+}
+.algovis-bar-element.comparing {
+  background-color: #eab308;
+}
+.algovis-bar-element.swapping {
+  background-color: #ef4444;
+}
+.algovis-bar-element.sorted {
+  background-color: #22c55e;
+}
+.algovis-bar-value {
+  position: absolute;
+  top: -25px;
+  font-size: 12px;
+  transition: all 0.1s ease;
+  color: #0d1116;
+  font-weight: 500;
+}
+.algovis-stats {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.algovis-stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.algovis-stats-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+.algovis-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 0.375rem;
+}
+.algovis-slider-input {
+  width: 200px;
+  cursor: pointer;
+}
+.algovis-slider-input::-webkit-slider-thumb {
+  background: #2563eb;
+}
+.algovis-slider-input::-moz-range-thumb {
+  background: #2563eb;
+}
+.algovis-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 0.375rem;
+}
+.algovis-checkbox-container input[type=checkbox] {
+  cursor: pointer;
+}
+.algovis-checkbox-container label {
+  cursor: pointer;
+  user-select: none;
+}
+.algovis-info {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.algovis-info-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2563eb;
+  font-size: 1.8rem;
+}
+.algovis-info-section {
+  margin-bottom: 2.5rem;
+}
+.algovis-info-section h3 {
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(37, 99, 235, 0.1);
+}
+.algovis-info-card {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+.algovis-info-card h4 {
+  color: #2563eb;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.algovis-info-card p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #1f2937;
+}
+.algovis-info-card ul {
+  list-style: none;
+  padding-left: 1.2rem;
+}
+.algovis-info-card ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+.algovis-info-card ul li::before {
+  content: "•";
+  color: #2563eb;
+  position: absolute;
+  left: -1.2rem;
+}
+.algovis-info-card ul li strong {
+  color: #1e40af;
 }
 
 /*# sourceMappingURL=main.css.map */
