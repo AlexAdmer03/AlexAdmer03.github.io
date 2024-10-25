@@ -22,9 +22,23 @@ $shadow-light-cyan: rgba(0, 255, 255, 0.3);
 $shadow-light-yellow: rgba(255, 215, 0, 0.3);
 
 // Gradients for galactic vibe
-$gradient-nebula: linear-gradient(135deg, $color-void-black, $color-nebula-pink, $color-cosmic-blue);
-$gradient-aurora: linear-gradient(180deg, $color-aurora-violet, $color-galactic-indigo);
-$gradient-cosmic-rift: linear-gradient(90deg, $color-deep-space-blue, $color-supernova-yellow, $color-quasar-cyan);
+$gradient-nebula: linear-gradient(
+  135deg,
+  $color-void-black,
+  $color-nebula-pink,
+  $color-cosmic-blue
+);
+$gradient-aurora: linear-gradient(
+  180deg,
+  $color-aurora-violet,
+  $color-galactic-indigo
+);
+$gradient-cosmic-rift: linear-gradient(
+  90deg,
+  $color-deep-space-blue,
+  $color-supernova-yellow,
+  $color-quasar-cyan
+);
 
 // Common uses
 $background-main: $color-void-black;
@@ -36,8 +50,16 @@ $button-hover-bg: $color-stellar-pink;
 $border-color: $color-asteroid-grey;
 
 // Particle colors
-$particle-colors: ($color-space-purple, $color-nebula-pink, $color-cosmic-blue, $color-aurora-violet, $color-stellar-pink, $color-supernova-yellow, $color-quasar-cyan, $shadow-light-yellow);
-
+$particle-colors: (
+  $color-space-purple,
+  $color-nebula-pink,
+  $color-cosmic-blue,
+  $color-aurora-violet,
+  $color-stellar-pink,
+  $color-supernova-yellow,
+  $color-quasar-cyan,
+  $shadow-light-yellow
+);
 
 //Algoviz-----------------
 $algovis-primary: #2563eb;
@@ -47,3 +69,14 @@ $algovis-compare: #eab308;
 $algovis-swap: #ef4444;
 $algovis-bg: #ffffff;
 $algovis-text: #1f2937;
+
+//ZENITH______________________________
+$zenith-primary: rgba(255, 255, 255, 0.1);
+$zenith-secondary: rgba(255, 255, 255, 0.2);
+$zenith-border: rgba(255, 255, 255, 0.1);
+$zenith-text: #ffffff;
+$zenith-danger: rgba(255, 0, 0, 0.2);
+$zenith-success: rgba(0, 255, 0, 0.1);
+$zenith-breathing-card-bg: rgba(255, 255, 255, 0.1);
+$zenith-breathing-card-active: rgba(255, 255, 255, 0.2);
+$zenith-breathing-text: rgba(255, 255, 255, 0.8);

@@ -348,4 +348,420 @@
   color: #1e40af;
 }
 
+.zenith-body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.zenith-video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.zenith-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.zenith-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zenith-title {
+  font-size: 4rem;
+  margin: 2rem 0 4rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.zenith-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.zenith-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+.zenith-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+.zenith-card-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.zenith-content-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  display: none;
+  padding: 4rem;
+  overflow-y: auto;
+}
+.zenith-content-section.zenith-section-active {
+  display: block;
+}
+
+.zenith-section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.zenith-back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+.zenith-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+.zenith-back-btn span {
+  font-size: 1.2em;
+}
+
+.zenith-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+}
+.zenith-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.zenith-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.zenith-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+}
+.zenith-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+.zenith-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.zenith-diary-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.zenith-diary-entry {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+}
+.zenith-diary-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+.zenith-diary-entry .zenith-entry-date {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.zenith-diary-entry .zenith-entry-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.zenith-goals-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.zenith-goals-list {
+  list-style: none;
+  padding: 0;
+}
+
+.zenith-goal-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+.zenith-goal-item.completed {
+  background: rgba(0, 255, 0, 0.05);
+}
+.zenith-goal-item.completed span {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+.zenith-goal-item .zenith-goal-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.zenith-breathing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.zenith-breathing-circle {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 50%;
+  margin: 2rem 0;
+  animation: breathe 4s infinite ease-in-out;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+.zenith-quote-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 3rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+}
+
+.zenith-quote-text {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: opacity 0.3s ease;
+}
+
+.zenith-audio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.zenith-audio-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  width: 500px;
+  text-align: center;
+}
+.zenith-audio-card h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+.zenith-audio-card audio {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.zenith-audio-image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 1rem;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.zenith-audio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zenith-focus-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 600px;
+  padding: 3rem;
+  border-radius: 15px;
+}
+
+.zenith-timer {
+  font-size: 6rem;
+  margin: 2rem 0;
+  font-weight: 200;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.zenith-button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.zenith-delete-btn {
+  background: rgba(255, 0, 0, 0.2);
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+.zenith-delete-btn:hover {
+  background: rgba(255, 0, 0, 0.4);
+}
+
+@media (max-width: 900px) {
+  .zenith-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .zenith-content-section {
+    padding: 2rem;
+  }
+  .zenith-audio-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .zenith-audio-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .zenith-grid {
+    grid-template-columns: 1fr;
+  }
+  .zenith-title {
+    font-size: 3rem;
+  }
+  .zenith-section-title {
+    font-size: 2rem;
+  }
+  .zenith-quote-text {
+    font-size: 1.5rem;
+  }
+  .zenith-timer {
+    font-size: 4rem;
+  }
+  .zenith-back-btn {
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

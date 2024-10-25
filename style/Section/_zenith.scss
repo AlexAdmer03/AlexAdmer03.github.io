@@ -1,0 +1,450 @@
+@import "../Core/Colors";
+
+// Mixins
+@mixin glass-effect {
+  background: $zenith-primary;
+  backdrop-filter: blur(10px);
+  border: 1px solid $zenith-border;
+}
+
+@mixin hover-transform {
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-2px);
+    background: $zenith-secondary;
+  }
+}
+
+@mixin section-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// Base Styles
+.zenith-body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  color: $zenith-text;
+  overflow-x: hidden;
+}
+
+.zenith-video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.zenith-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+// Container & Grid
+.zenith-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zenith-title {
+  font-size: 4rem;
+  margin: 2rem 0 4rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  color: $zenith-text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.zenith-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+// Cards
+.zenith-card {
+  @include glass-effect;
+  @include hover-transform;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+
+  &-title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: $zenith-text;
+  }
+}
+
+// Content Sections
+.zenith-content-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  display: none;
+  padding: 4rem;
+  overflow-y: auto;
+
+  &.zenith-section-active {
+    display: block;
+  }
+}
+
+.zenith-section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: $zenith-text;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+// Back Button
+.zenith-back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  @include glass-effect;
+  color: $zenith-text;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $zenith-secondary;
+    transform: translateX(-2px);
+  }
+
+  span {
+    font-size: 1.2em;
+  }
+}
+
+// Common Components
+.zenith-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: $zenith-primary;
+  border: 1px solid $zenith-border;
+  color: $zenith-text;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.zenith-button {
+  @include glass-effect;
+  @include hover-transform;
+  color: $zenith-text;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Diary Styles
+.zenith-diary-container {
+  @include section-container;
+}
+
+.zenith-diary-entry {
+  @include glass-effect;
+  @include hover-transform;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+
+  .zenith-entry-date {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .zenith-entry-text {
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+}
+
+// Goals Styles
+.zenith-goals-container {
+  @include section-container;
+  max-width: 600px;
+}
+
+.zenith-goals-list {
+  list-style: none;
+  padding: 0;
+}
+
+.zenith-goal-item {
+  @include glass-effect;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+
+  &.completed {
+    background: rgba(0, 255, 0, 0.05);
+    span {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+  }
+
+  .zenith-goal-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+// Breathing Exercise Styles
+.zenith-breathing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.zenith-breathing-circle {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 50%;
+  margin: 2rem 0;
+  animation: breathe 4s infinite ease-in-out;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+// Quote Styles
+.zenith-quote-container {
+  @include section-container;
+  @include glass-effect;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+}
+
+.zenith-quote-text {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  font-style: italic;
+  color: $zenith-text;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: opacity 0.3s ease;
+}
+
+// Audio Library Styles
+.zenith-audio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.zenith-audio-card {
+  @include glass-effect;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 500px;
+  text-align: center;
+
+  h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+.zenith-audio-image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 1rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Focus Session Styles
+.zenith-focus-container {
+  @include section-container;
+  @include glass-effect;
+  text-align: center;
+  max-width: 600px;
+  padding: 3rem;
+  border-radius: 15px;
+}
+
+.zenith-timer {
+  font-size: 6rem;
+  margin: 2rem 0;
+  font-weight: 200;
+  color: $zenith-text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.zenith-button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+// Delete Button
+.zenith-delete-btn {
+  background: $zenith-danger;
+  border: none;
+  color: $zenith-text;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+
+  &:hover {
+    background: rgba(255, 0, 0, 0.4);
+  }
+}
+
+// Responsive Design
+@media (max-width: 900px) {
+  .zenith-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zenith-content-section {
+    padding: 2rem;
+  }
+
+  .zenith-audio-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .zenith-audio-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .zenith-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zenith-title {
+    font-size: 3rem;
+  }
+
+  .zenith-section-title {
+    font-size: 2rem;
+  }
+
+  .zenith-quote-text {
+    font-size: 1.5rem;
+  }
+
+  .zenith-timer {
+    font-size: 4rem;
+  }
+
+  .zenith-back-btn {
+    top: 1rem;
+    left: 1rem;
+  }
+}

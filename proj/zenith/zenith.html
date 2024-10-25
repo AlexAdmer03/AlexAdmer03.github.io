@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenith</title>
+    <link
+      rel="stylesheet"
+      href="../../lib/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../../style/main.css" />
+    <link rel="icon" href="data:," />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="zenith-body">
+    <video class="zenith-video-background" autoplay muted loop>
+      <source src="/mp4/zen.mp4" type="video/mp4" />
+    </video>
+
+    <div class="zenith-overlay"></div>
+
+    <div class="zenith-container">
+      <h1 class="zenith-title">ZENITH</h1>
+      <div class="zenith-grid">
+        <div class="zenith-card" onclick="ZenithApp.openSection('diary')">
+          <h2 class="zenith-card-title">Diary</h2>
+        </div>
+        <div class="zenith-card" onclick="ZenithApp.openSection('goals')">
+          <h2 class="zenith-card-title">Goals</h2>
+        </div>
+        <div class="zenith-card" onclick="ZenithApp.openSection('breathing')">
+          <h2 class="zenith-card-title">Breathing</h2>
+        </div>
+        <div class="zenith-card" onclick="ZenithApp.openSection('quotes')">
+          <h2 class="zenith-card-title">Quotes</h2>
+        </div>
+        <div class="zenith-card" onclick="ZenithApp.openSection('audio')">
+          <h2 class="zenith-card-title">Audio Library</h2>
+        </div>
+        <div class="zenith-card" onclick="ZenithApp.openSection('focus')">
+          <h2 class="zenith-card-title">Focus Session</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div id="zenith-diary-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">My Diary</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-diary-container">
+        <textarea
+          id="zenith-diary-text"
+          class="zenith-input"
+          placeholder="Write your thoughts here..."
+          style="height: 200px"
+        ></textarea>
+        <button class="zenith-button" onclick="ZenithApp.saveDiaryEntry()">
+          Save Entry
+        </button>
+        <div id="zenith-diary-entries"></div>
+      </div>
+    </div>
+
+    <div id="zenith-goals-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">My Goals</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-goals-container">
+        <input
+          type="text"
+          id="zenith-goal-input"
+          class="zenith-input"
+          placeholder="Enter your goal..."
+        />
+        <button class="zenith-button" onclick="ZenithApp.addGoal()">
+          Add Goal
+        </button>
+        <ul id="zenith-goals-list" class="zenith-goals-list"></ul>
+      </div>
+    </div>
+
+    <div id="zenith-breathing-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">Breathing Exercises</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-breathing-container">
+        <div class="zenith-breathing-circle"></div>
+        <p>Breathe in as the circle expands, breathe out as it contracts</p>
+      </div>
+    </div>
+
+    <div id="zenith-quotes-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">Daily Quote</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-quote-container">
+        <p id="zenith-daily-quote" class="zenith-quote-text"></p>
+        <button class="zenith-button" onclick="ZenithApp.getNewQuote()">
+          New Quote
+        </button>
+      </div>
+    </div>
+
+    <div id="zenith-audio-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">Audio Library</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-audio-container">
+        <div class="zenith-audio-card">
+          <div class="zenith-audio-image">
+            <img src="/img/zen1.jpg" alt="40Hz Binaural Beats" />
+          </div>
+          <h3>40Hz Binaural Beats</h3>
+          <audio controls>
+            <source src="path-to-40hz.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+        <div class="zenith-audio-card">
+          <div class="zenith-audio-image">
+            <img src="/img/zen2.jpg" alt="432Hz Healing" />
+          </div>
+          <h3>432Hz Healing</h3>
+          <audio controls>
+            <source src="path-to-432hz.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div id="zenith-focus-section" class="zenith-content-section">
+      <h2 class="zenith-section-title">Focus Session</h2>
+      <button class="zenith-back-btn" onclick="ZenithApp.goBack()">
+        <span>←</span> Back
+      </button>
+      <div class="zenith-focus-container">
+        <div id="zenith-timer" class="zenith-timer">25:00</div>
+        <div class="zenith-button-group">
+          <button class="zenith-button" onclick="ZenithApp.startFocusSession()">
+            Start
+          </button>
+          <button class="zenith-button" onclick="ZenithApp.pauseFocusSession()">
+            Pause
+          </button>
+          <button class="zenith-button" onclick="ZenithApp.resetFocusSession()">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../JS/zenith.js"></script>
+    <script src="../..//lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
