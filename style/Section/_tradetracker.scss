@@ -1,0 +1,396 @@
+// Variables
+$colors: (
+  primary: #f97316,
+  // Orange-500
+  secondary: #fb923c,
+  // Orange-400
+  success: #22c55e,
+  danger: #ef4444,
+  background: #1e293b,
+  // Slate-800
+  card: #334155,
+  // Slate-700
+  text: #f8fafc,
+  // Slate-50
+  text-secondary: #cbd5e1,
+  // Slate-300
+  border: #475569 // Slate-600,,,,,,
+);
+
+// Mixins
+@mixin button-base {
+  color: map-get($colors, text);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(map-get($colors, primary), 0.1);
+
+  &:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(map-get($colors, primary), 0.3);
+    transform: translateY(-1px);
+  }
+}
+
+@mixin glow-effect($color) {
+  box-shadow: 0 0 15px rgba($color, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, 0.4);
+  }
+}
+
+// Root styles
+.tt-root {
+  --tt-primary: #{map-get($colors, primary)};
+  --tt-secondary: #{map-get($colors, secondary)};
+  --tt-success: #{map-get($colors, success)};
+  --tt-danger: #{map-get($colors, danger)};
+  --tt-background: #{map-get($colors, background)};
+  --tt-card: #{map-get($colors, card)};
+
+  background: var(--tt-background);
+  background: linear-gradient(
+    145deg,
+    map-get($colors, background),
+    adjust-color(map-get($colors, background), $lightness: -2%)
+  );
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: map-get($colors, text);
+  min-height: 100vh;
+}
+
+.tt-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Logo styles
+.tt-logo-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tt-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--tt-primary);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(map-get($colors, primary), 0.3);
+
+  span {
+    color: var(--tt-secondary);
+    text-shadow: 0 0 15px rgba(map-get($colors, secondary), 0.3);
+  }
+}
+
+.tt-subtitle {
+  color: map-get($colors, text-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(map-get($colors, text-secondary), 0.2);
+}
+
+// Card styles
+.tt-card {
+  background: var(--tt-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Form styles
+.tt-form-group {
+  margin-bottom: 1rem;
+}
+
+.tt-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: map-get($colors, text-secondary);
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(map-get($colors, text-secondary), 0.2);
+}
+
+.tt-input,
+.tt-select,
+.tt-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid map-get($colors, border);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: map-get($colors, background);
+  color: map-get($colors, text);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    outline: none;
+    border-color: var(--tt-primary);
+    box-shadow: 0 0 0 2px rgba(map-get($colors, primary), 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    border-color: rgba(map-get($colors, primary), 0.5);
+  }
+}
+
+.tt-textarea {
+  min-height: 100px;
+}
+
+.tt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+// Button styles
+.tt-button {
+  @include button-base;
+  background: linear-gradient(
+    145deg,
+    var(--tt-primary),
+    adjust-color(map-get($colors, primary), $lightness: -10%)
+  );
+  margin-right: 0.5rem;
+  @include glow-effect(map-get($colors, primary));
+}
+
+.tt-button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tt-button-secondary {
+  background: linear-gradient(
+    145deg,
+    var(--tt-secondary),
+    adjust-color(map-get($colors, secondary), $lightness: -10%)
+  );
+  @include glow-effect(map-get($colors, secondary));
+}
+
+.tt-edit-btn {
+  @include button-base;
+  background: linear-gradient(
+    145deg,
+    var(--tt-secondary),
+    adjust-color(map-get($colors, secondary), $lightness: -10%)
+  );
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+  @include glow-effect(map-get($colors, secondary));
+}
+
+.tt-delete-btn {
+  @include button-base;
+  background: linear-gradient(
+    145deg,
+    var(--tt-danger),
+    adjust-color(map-get($colors, danger), $lightness: -10%)
+  );
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  @include glow-effect(map-get($colors, danger));
+}
+
+// Trade entries
+.tt-trades-list {
+  margin-top: 2rem;
+}
+
+.tt-trade-entry {
+  background: var(--tt-card);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--tt-primary);
+  color: map-get($colors, text);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  &.tt-win {
+    border-left-color: var(--tt-success);
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(map-get($colors, success), 0.1);
+    }
+  }
+
+  &.tt-loss {
+    border-left-color: var(--tt-danger);
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(map-get($colors, danger), 0.1);
+    }
+  }
+}
+
+.tt-trade-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+// Checklist styles
+.tt-rules-checklist {
+  margin-bottom: 2rem;
+}
+
+.tt-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input {
+    width: auto;
+    &:checked {
+      box-shadow: 0 0 10px rgba(map-get($colors, primary), 0.5);
+    }
+  }
+}
+
+.tt-heading {
+  color: var(--tt-primary);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(map-get($colors, primary), 0.3);
+}
+
+//WEEKLY SECTION___________________________________________
+
+.tt-week-section {
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--tt-card);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tt-week-header {
+  padding: 1.5rem;
+  cursor: pointer;
+  background: rgba(map-get($colors, primary), 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    background: rgba(map-get($colors, primary), 0.15);
+  }
+
+  h3 {
+    color: var(--tt-primary);
+    margin-bottom: 1rem;
+  }
+}
+
+.tt-week-summary {
+  pointer-events: none;
+}
+
+.tt-week-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.tt-stat {
+  font-weight: 500;
+
+  &.tt-positive {
+    color: var(--tt-success);
+  }
+
+  &.tt-negative {
+    color: var(--tt-danger);
+  }
+}
+
+.tt-week-notes {
+  margin-top: 1rem;
+  position: relative;
+
+  textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 0.5rem;
+    border: 1px solid rgba(map-get($colors, primary), 0.2);
+    border-radius: 0.25rem;
+    background: rgba(map-get($colors, background), 0.5);
+    color: map-get($colors, text);
+    resize: vertical;
+    position: relative;
+    z-index: 1;
+
+    &:focus {
+      outline: none;
+      border-color: var(--tt-primary);
+      box-shadow: 0 0 0 2px rgba(map-get($colors, primary), 0.1);
+    }
+  }
+}
+
+.tt-week-trades {
+  max-height: 2000px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+
+  &.tt-collapsed {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// Update existing trade entry styles
+.tt-trade-entry {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(map-get($colors, background), 0.5);
+  border-left: 4px solid var(--tt-primary);
+
+  &.tt-win {
+    border-left-color: var(--tt-success);
+  }
+
+  &.tt-loss {
+    border-left-color: var(--tt-danger);
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+}

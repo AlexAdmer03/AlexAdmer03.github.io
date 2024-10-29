@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Project Hub</title>
+    <link
+      rel="stylesheet"
+      href="../../lib/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../../style/main.css" />
+    <link rel="icon" href="data:," />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="tt-root">
+      <div class="tt-wrapper">
+        <div class="tt-logo-container">
+          <div class="tt-logo">Trade<span>Tracker</span> Pro</div>
+          <div class="tt-subtitle">
+            Your Personal Trading Journal & Performance Analyzer
+          </div>
+        </div>
+
+        <div class="tt-card tt-rules-checklist">
+          <h2 class="tt-heading">Trading Rules & Checklist</h2>
+          <div id="rules" class="tt-form-group">
+            <div class="tt-checkbox-group">
+              <input type="checkbox" id="rule1" class="tt-checkbox" />
+              <label for="rule1" class="tt-label"
+                >Have I done my analysis</label
+              >
+            </div>
+            <div class="tt-checkbox-group">
+              <input type="checkbox" id="rule2" class="tt-checkbox" />
+              <label for="rule2" class="tt-label"
+                >Does this trade fit my strategy</label
+              >
+            </div>
+            <div class="tt-checkbox-group">
+              <input type="checkbox" id="rule3" class="tt-checkbox" />
+              <label for="rule3" class="tt-label"
+                >Is the risk within my limits</label
+              >
+            </div>
+            <div class="tt-checkbox-group">
+              <input type="checkbox" id="rule4" class="tt-checkbox" />
+              <label for="rule4" class="tt-label"
+                >Am I not emotionally affected right now</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="tt-card">
+          <h2 class="tt-heading">New Trade Entry</h2>
+          <form id="tradeForm">
+            <input type="hidden" id="tradeId" />
+            <div class="tt-grid">
+              <div class="tt-form-group">
+                <label class="tt-label">Date</label>
+                <input type="date" id="date" class="tt-input" required />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Time</label>
+                <input type="time" id="time" class="tt-input" required />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Pair</label>
+                <input type="text" id="pair" class="tt-input" required />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Direction</label>
+                <select id="direction" class="tt-select" required>
+                  <option value="Buy">Buy</option>
+                  <option value="Sell">Sell</option>
+                </select>
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Entry Price</label>
+                <input
+                  type="number"
+                  step="0.00001"
+                  id="entryPrice"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Exit Price</label>
+                <input
+                  type="number"
+                  step="0.00001"
+                  id="exitPrice"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Stop Loss</label>
+                <input
+                  type="number"
+                  step="0.00001"
+                  id="stopLoss"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Take Profit</label>
+                <input
+                  type="number"
+                  step="0.00001"
+                  id="takeProfit"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">Risk (%)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  id="risk"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-form-group">
+                <label class="tt-label">P/L ($)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  id="pnl"
+                  class="tt-input"
+                  required
+                />
+              </div>
+              <div class="tt-button-group"></div>
+            </div>
+
+            <div class="tt-form-group">
+              <label class="tt-label">Reason for Trade</label>
+              <textarea id="reason" class="tt-textarea" required></textarea>
+            </div>
+            <div class="tt-form-group">
+              <label class="tt-label">Emotions During Trade</label>
+              <textarea id="emotions" class="tt-textarea" required></textarea>
+            </div>
+            <div class="tt-form-group">
+              <label class="tt-label">Outcome</label>
+              <select id="outcome" class="tt-select" required>
+                <option value="Win">Win</option>
+                <option value="Loss">Loss</option>
+              </select>
+            </div>
+            <div class="tt-form-group">
+              <label class="tt-label">Notes</label>
+              <textarea id="notes" class="tt-textarea"></textarea>
+            </div>
+            <div class="tt-form-group">
+              <label class="tt-label">Did you follow rules?</label>
+              <select id="followedRules" class="tt-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <div class="tt-button-group">
+              <button type="submit" class="tt-button" id="submitButton">
+                Add Trade
+              </button>
+              <button
+                type="button"
+                class="tt-button tt-button-secondary"
+                id="cancelButton"
+                style="display: none"
+              >
+                Cancel Edit
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tt-card">
+          <h2 class="tt-heading">Trade History</h2>
+          <div class="tt-trades-list" id="tradesList"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../JS/tradetracker.js"></script>
+    <script src="../..//lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
