@@ -705,6 +705,22 @@
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
+.zenith-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+#zenith-timer-progress {
+  height: 100%;
+  width: 0;
+  background: #4caf50;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
 .zenith-button-group {
   display: flex;
   gap: 1rem;
@@ -900,9 +916,22 @@
 }
 
 .tt-button-secondary {
+  color: #f8fafc;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.1);
   background: linear-gradient(145deg, var(--tt-secondary), #fa760a);
   box-shadow: 0 0 15px rgba(251, 146, 60, 0.2);
   transition: all 0.3s ease;
+}
+.tt-button-secondary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+  transform: translateY(-1px);
 }
 .tt-button-secondary:hover {
   box-shadow: 0 0 20px rgba(251, 146, 60, 0.4);

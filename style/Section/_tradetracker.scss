@@ -14,7 +14,7 @@ $colors: (
   // Slate-50
   text-secondary: #cbd5e1,
   // Slate-300
-  border: #475569 // Slate-600,,,,,,
+  border: #475569 // Slate-600,,
 );
 
 // Mixins
@@ -182,6 +182,7 @@ $colors: (
 }
 
 .tt-button-secondary {
+  @include button-base;
   background: linear-gradient(
     145deg,
     var(--tt-secondary),
@@ -284,8 +285,7 @@ $colors: (
   text-shadow: 0 0 15px rgba(map-get($colors, primary), 0.3);
 }
 
-//WEEKLY SECTION___________________________________________
-
+// Weekly section
 .tt-week-section {
   margin-bottom: 2rem;
   border-radius: 0.5rem;

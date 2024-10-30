@@ -244,6 +244,12 @@ const ZenithApp = {
       .toString()
       .padStart(2, "0")}`;
     document.getElementById("zenith-timer").textContent = display;
+
+    // Add progress bar update
+    const progressBar = document.getElementById("zenith-timer-progress");
+    const totalTime = 25 * 60;
+    const progress = ((totalTime - this.timeLeft) / totalTime) * 100;
+    progressBar.style.width = `${progress}%`;
   },
 
   // Audio Methods
